@@ -52,3 +52,11 @@ docker build -t my-nginx:latest .
  => => exporting layers                                 0.7s
  => => writing image sha256:d5c3f9768d59d786d9bdba72af  0.0s
  => => naming to docker.io/library/my-nginx:latest      0.0s
+
+ ### Ejercicio 5: Modificar el Dockerfile de Nginx para exponer el puerto 80
+FROM ubuntu:latest
+RUN apt-get update && apt-get install -y nginx
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+
+docker build -t my-nginx:latest .
