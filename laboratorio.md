@@ -58,3 +58,12 @@ WORKDIR /app
 COPY myfile.txt .
 
 docker build -t my-ubuntu-app:latest .
+
+### Ejercicio 3: Ejecutar un script Python al iniciar el contenedor
+
+FROM python:3.9
+WORKDIR /app
+COPY script.py .
+CMD ["python", "script.py"]
+
+docker build -t my-python-app:latest .
