@@ -1,5 +1,6 @@
 # Usa una imagen base oficial de Ubuntu
-FROM ubuntu:latest
+FROM nginx:latest
+COPY index.html /usr/share/nginx/html/
 
 # Actualiza el índice de paquetes e instala `curl`
 RUN apt-get update && apt-get install -y nginx

@@ -36,23 +36,6 @@ CMD ["nginx", "-g", "daemon off;"]
 
 docker build -t my-nginx:latest .
 
-[+] Building 1.6s (9/9) FINISHED              docker:default
- => [internal] load build definition from Dockerfile    0.1s
- => => transferring dockerfile: 480B                    0.0s
- => [internal] load metadata for docker.io/library/ubu  0.0s
- => [internal] load .dockerignore                       0.0s
- => => transferring context: 2B                         0.0s
- => [1/4] FROM docker.io/library/ubuntu:latest          0.0s
- => [internal] load build context                       0.1s
- => => transferring context: 10.26kB                    0.0s
- => CACHED [2/4] RUN apt-get update && apt-get install  0.0s
- => CACHED [3/4] WORKDIR /app                           0.0s
- => [4/4] COPY . /app                                   0.2s
- => exporting to image                                  0.8s
- => => exporting layers                                 0.7s
- => => writing image sha256:d5c3f9768d59d786d9bdba72af  0.0s
- => => naming to docker.io/library/my-nginx:latest      0.0s
-
  ### Ejercicio 5: Modificar el Dockerfile de Nginx para exponer el puerto 80
 FROM ubuntu:latest
 RUN apt-get update && apt-get install -y nginx
@@ -60,3 +43,11 @@ EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 
 docker build -t my-nginx:latest .
+
+## Tema 2: Instrucciones comunes en Dockerfile
+
+### Ejercicio 1: Copiar un archivo HTML local a una imagen de Nginx
+
+FROM nginx:latest
+COPY index.html /usr/share/nginx/html/
+docker build -t my-custom-nginx:latest .
