@@ -51,3 +51,10 @@ docker build -t my-nginx:latest .
 FROM nginx:latest
 COPY index.html /usr/share/nginx/html/
 docker build -t my-custom-nginx:latest .
+
+### Ejercicio 2: Usar WORKDIR y copiar un archivo
+FROM ubuntu:latest
+WORKDIR /app
+COPY myfile.txt .
+
+docker build -t my-ubuntu-app:latest .
